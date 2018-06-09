@@ -30,7 +30,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
         echo "Checking ". basename( $_FILES["fileToUpload"]["name"]). " for style errors. Errors are marked in red below.";
-	exec("apt-cache policy smlnj", $aaa);
+	exec("ls /bin/", $aaa);
 	print_r($aaa);
 	exec("/usr/local/sml/bin/sml fail.sml", $aaa);
 	print_r($aaa);
