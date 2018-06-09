@@ -32,7 +32,7 @@ if ($uploadOk == 0) {
         echo "Checking ". basename( $_FILES["fileToUpload"]["name"]). " for style errors. Errors are marked in red below.";
 	exec("ls", $aaa);
 	print_r($aaa);
-	exec("python mkrunner.py " . $target_file, $bbb);
+	exec("/usr/bin/python mkrunner.py " . $target_file, $bbb);
 	print_r($bbb);
 	if (file_exists($runner_file)) {
 	   echo "runner exists";
