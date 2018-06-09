@@ -30,6 +30,8 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
         echo "Checking ". basename( $_FILES["fileToUpload"]["name"]). " for style errors. Errors are marked in red below.";
+	exec("sml fail.sml", $aaa);
+	print_r($aaa);
 	exec("mv " . $target_file . " " . "aaa.sml");
 	$target_file = "aaa.sml";
 	exec("ls", $aaa);
