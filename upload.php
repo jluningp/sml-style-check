@@ -41,8 +41,11 @@ if ($uploadOk == 0) {
 	if (file_exists($runner_file)) {
 	   echo "runner exists";
 	}
-	exec("sml parse.sml ast-skeleton.sml " . $runner_file . " fail.sml");
+	exec("sml parse.sml ast-skeleton.sml " . $runner_file . " fail.sml", $aaa);
+	print_r($aaa);
 	exec("rm " . $runner_file);
+	exec("ls tmp", $aaa);
+	print_r($aaa);
 	$myfile = fopen($output_file, "r") or die("Something went wrong.");
 	echo fread($myfile,filesize($output_file));
 	fclose($myfile);
