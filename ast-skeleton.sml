@@ -236,4 +236,37 @@ fun markAppends filename =
         ^ "</code></pre>")
     end
 
+fun print_region (left : SourceMap.sourceloc, right : SourceMap.sourceloc) =
+    let
+      val left_line = #line left
+      val right_line = #line right
+      val left_str = Int.toString left_line ^ "." ^ Int.toString (#column left)
+      val right_str = if left_line = right_line
+                      then Int.toString (#column right)
+                      else Int.toString right_line ^ "." ^ Int.toString (#column right)
+    in
+      left_str ^ "-" ^ right_str
+    end
+
+fun get_row_col_printout sourceMap (left, right) =
+    let
+      val regions = SourceMap.fileregion sourceMap (left, right)
+    in
+      map print_region regions
+    end
+
+fun print_warning_summary filename =
+    let
+      val source = getSource filename
+      val ast = SmlFile.parse source
+      val env = get_env ast
+      val appends = find_dec find_append_singleton ast
+      val sourceMap = #sourceMap source
+      val warnings = map (fn (x, SOME y) => filename ^ ":" ^ (concat (get_row_col_printout sourceMap y)) ^
+                                            " Style: appended singleton to the front of list\n"
+                                            ^ "   expression: " ^ Lint.pp_exp x env ""^ "\n"
+                                            ^ "   hint: use :: instead\n") appends
+    in
+      concat warnings
+    end
 end
