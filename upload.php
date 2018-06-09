@@ -34,8 +34,7 @@ if ($uploadOk == 0) {
 	$target_file = "aaa.sml";
 	exec("ls", $aaa);
 	print_r($aaa);
-	exec("/usr/bin/python mkrunner.py " . $target_file, $bbb);
-	print_r($bbb);
+	exec("echo \"val _ = markAppends \"aaa.sml\"\" > tmp/runner.sml");
 	if (file_exists($runner_file)) {
 	   echo "runner exists";
 	}
