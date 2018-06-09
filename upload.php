@@ -41,6 +41,8 @@ if ($uploadOk == 0) {
     } else {
       	if(file_exists($_FILES["fileToUpload"]["tmp_name"])) {
 	   echo "Odd, file exists but won't move.";
+	   $myfile = fopen($_FILES["fileToUpload"]["tmp_name"], "r") or die("Something went wrong.");
+	   echo fread($myfile, filesize($_FILES["fileToUpload"]["tmp_name"]));
 	}
         echo "Sorry, there was an error uploading your file.";
     }
