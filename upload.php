@@ -34,7 +34,10 @@ if ($uploadOk == 0) {
 	$target_file = "aaa.sml";
 	exec("ls", $aaa);
 	print_r($aaa);
-	exec("echo \"val _ = markAppends \"aaa.sml\"\" > tmp/runner.sml");
+	exec("echo \"val _ = markAppends \"aaa.sml\"\" > runner.sml");
+	exec("ls", $aaa);
+	print_r($aaa);
+	$runner_file = "runner.sml";
 	if (file_exists($runner_file)) {
 	   echo "runner exists";
 	}
