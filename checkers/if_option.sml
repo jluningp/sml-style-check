@@ -9,16 +9,33 @@ struct
          | VarExp [s] => Symbol.name s = sym
          | _ => false
 
+   fun find_pair f [] = false
+     | find_pair f [x] = false
+     | find_pair f (x::y::xs) =
+       if f (x, y) orelse f (y, x)
+       then true
+       else find_pair f (y::xs)
+
    fun find_option_check exp =
        case exp of
-           FlatAppExp [f1, f2, f3] => is_sym "=" (#item f2) andalso is_sym "NONE" (#item f3)
-         | _ => false
+           FlatAppExp (L as _::_::_) => if find_pair (fn (x, y) => is_sym "=" (#item x)
+                                                                andalso
+                                                                is_sym "NONE" (#item y)) L
+                                        then [(exp, NONE)]
+                                        else []
+
+         | _ => []
 
    fun check exp =
        case exp of
-           IfExp {thenCase, elseCase, test} => if find_option_check test
-                                               then [(exp, NONE)]
-                                               else []
+           IfExp {thenCase, elseCase, test} => (let
+                                                 val found = AstTraverse.find_exp find_option_check test
+                                                 val immediate = find_option_check test
+                                               in
+                                                 case (found, immediate) of
+                                                   ([], []) => []
+                                                  | _ => [(exp, NONE)]
+                                               end)
          | _ => []
 
    val warning = "checked for NONE using if"

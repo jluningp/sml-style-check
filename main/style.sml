@@ -43,10 +43,10 @@ val checkers = [(Append.check, Append.warning, Append.hint),
       in
         concat (map printout found)
       end
-
+(*
   val ppExp : StaticEnv.staticEnv * Source.inputSource option
               -> ?.PrettyPrintNew.PP.stream -> Ast.exp * int -> unit
-
+*)
   fun check_style filename =
       let
         val source = Parse.getSource filename
