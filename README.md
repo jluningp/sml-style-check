@@ -46,8 +46,7 @@ val it = () : unit
 ```
 
 ## Extending the Checker
-
-This section gives instructions on how to add new rules to the style checker. 
+Want to add new style rules?
 
 The style checker's rules can be found in the `checkers/` directory. Each rule has three components:
 1. A check function. This function should return true when presented with an SML/NJ expression AST (the definition of 
