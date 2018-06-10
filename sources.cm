@@ -12,6 +12,7 @@ is
   $smlnj/viscomp/parser.cm
   $smlnj/viscomp/basics.cm
   $smlnj/viscomp/elabdata.cm
+  $smlnj/viscomp/elaborate.cm
 
   ast-util/ast-traverse.sig
   ast-util/ast-traverse.sml
@@ -26,4 +27,5 @@ is
   checkers/check.sig
   checkers/append.sml
   checkers/if_option.sml
+  checkers/if_list.sml
   (* Add extra rules here *)

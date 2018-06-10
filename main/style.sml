@@ -1,9 +1,9 @@
 structure Style : STYLE =
 struct
-  (* To add more style rules, add structures to checker.sml/checker.sig
-   * and then add them to the list here *)
-val checkers = [(Append.check, Append.warning, Append.hint),
-                (IfOption.check, IfOption.warning, IfOption.hint)]
+  (* To add more style rules, add structures in checker/ and then add them to the list here *)
+  val checkers = [(Append.check, Append.warning, Append.hint),
+                  (IfOption.check, IfOption.warning, IfOption.hint),
+                  (IfList.check, IfList.warning, IfList.hint)]
 
   fun sourceloc_to_string (left : SourceMap.sourceloc, right : SourceMap.sourceloc) =
       let
