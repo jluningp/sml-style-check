@@ -1,1 +1,5 @@
-*/.cm
+.cm
+ast-util/.cm
+checkers/.cm
+main/.cm
+tests/.cm
