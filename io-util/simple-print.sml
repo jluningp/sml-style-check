@@ -1,6 +1,3 @@
-CM.make "$smlnj/viscomp/basics.cm";
-CM.make "$smlnj/viscomp/elabdata.cm";
-
 signature LINT =
 sig
   type indent = string
