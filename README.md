@@ -64,4 +64,4 @@ Then, add a new tuple containing (check, warning, and hint) to the `checkers` li
 
 For good measure, you can also add tests for the new rule to `tests/`. 
 
-An in-depth example of how to add a new rule can be found on the wiki. 
+An in-depth example of how to add a new rule can be found on the [wiki](https://github.com/jluningp/sml-style-check/wiki/New-Style-Rule-Example). 
