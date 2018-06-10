@@ -49,7 +49,7 @@ val it = () : unit
 
 This section gives instructions on how to add new rules to the style checker. 
 
-The rules style checker's rules can be found in the `checkers/` directory. Each rule has three components:
+The style checker's rules can be found in the `checkers/` directory. Each rule has three components:
 1. A check function. This function should return true when presented with an SML/NJ expression AST (the definition of 
 which can be found [here](https://www.smlnj.org/doc/Compiler/pages/ast.html)) that violates the style rule in question, 
 and false otherwise. Make sure the check function accounts for Marked, Seq, and FlatAppExp nodes that may be present
