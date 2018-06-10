@@ -1,5 +1,5 @@
 # SML Style Checker
-An easy-to-extend style checker for Standard ML. This checker works specifically with Standard ML of New Jersey (SML/NJ), 
+An extendable style checker for Standard ML. This checker works specifically with Standard ML of New Jersey (SML/NJ), 
 since it makes use of its Visible Compiler feature for parsing.
 
 ## Usage
@@ -28,16 +28,19 @@ $ sml -m sources.cm
 Standard ML of New Jersey v110.82 [built: Wed Dec 13 23:38:01 2017]
 [scanning sources.cm]
 [New bindings added.]
-- Style.check_style "tests/append.sml";
-tests/append.sml:1.6-18 Style: appended singleton to the front of list
-   expression: [5] @ []
+- Style.check_style "tests/combined.sml";
+tests/combined.sml:8.32-55 Style: appended singleton to the front of list
+   expression: [y] @ (mapPartial f xs)
    hint: use :: instead
-tests/append.sml:5.21-39 Style: appended singleton to the front of list
-   expression: [f x] @ (map f xs)
-   hint: use :: instead
-tests/append.sml:12.24-49 Style: appended singleton to the front of list
-   expression: [call] @ (map f xs)
-   hint: use :: instead
+tests/combined.sml:2.28-9.33 Style: checked for NONE using if
+   expression: if f x = NONE
+               then mapPartial f xs
+               else let
+                  val SOME y = f x
+                in
+                  ([y] @ (mapPartial f xs))
+                end
+   hint: use case instead
 val it = () : unit
 - 
 ```
