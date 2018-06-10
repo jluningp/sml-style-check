@@ -1,5 +1,5 @@
 # SML Style Checker
-An easy-to-extend style checker for Standard ML. This checker works specifically with Standard ML of New Jersey (SML/NJ), 
+An extendable style checker for Standard ML. This checker works specifically with Standard ML of New Jersey (SML/NJ), 
 since it makes use of its Visible Compiler feature for parsing.
 
 ## Usage
