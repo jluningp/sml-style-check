@@ -67,5 +67,3 @@ Once a new rule structure is added to the `checkers/` directory, add it to the `
 Then, add a new tuple containing (check, warning, and hint) to the `checkers` list in `main/style.sml`. 
 
 You should also add tests for the new rule to `tests/` and document the rule in the `checkers/` readme. 
-
-An in-depth example of how to add a new rule can be found on the [wiki](https://github.com/jluningp/sml-style-check/wiki/New-Style-Rule-Example). 
