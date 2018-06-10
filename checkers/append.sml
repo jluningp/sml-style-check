@@ -25,5 +25,5 @@ struct
 
   val check = find_append_singleton
   val warning = "appended singleton to the front of list"
-  val hint = "hint: use :: instead"
+  val hint = "use :: instead"
 end
