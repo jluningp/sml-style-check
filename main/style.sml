@@ -2,7 +2,8 @@ structure Style : STYLE =
 struct
   (* To add more style rules, add structures to checker.sml/checker.sig
    * and then add them to the list here *)
-  val checkers = [(Append.check, Append.warning, Append.hint)]
+val checkers = [(Append.check, Append.warning, Append.hint),
+                (IfOption.check, IfOption.warning, IfOption.hint)]
 
   fun sourceloc_to_string (left : SourceMap.sourceloc, right : SourceMap.sourceloc) =
       let
@@ -28,6 +29,7 @@ struct
         val filename = #fileOpened source
         val sourceMap = #sourceMap source
         val found = AstTraverse.find_dec check ast
+        val indent = "               "
         fun printout (exp, region_opt) = (let
                                            val lines = case region_opt of
                                                            SOME region => region_to_string sourceMap region
@@ -35,12 +37,15 @@ struct
                                          in
                                            filename ^ ":" ^ lines ^
                                            " Style: " ^ warning ^ "\n"
-                                           ^ "   expression: " ^ Lint.pp_exp exp env ""^ "\n"
+                                           ^ "   expression: " ^ Lint.pp_exp exp env indent ^ "\n"
                                            ^ "   hint: " ^ hint ^ "\n"
                                          end)
       in
         concat (map printout found)
       end
+
+  val ppExp : StaticEnv.staticEnv * Source.inputSource option
+              -> ?.PrettyPrintNew.PP.stream -> Ast.exp * int -> unit
 
   fun check_style filename =
       let

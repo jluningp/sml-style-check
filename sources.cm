@@ -1,6 +1,10 @@
 Group
+  signature PARSE
+  structure Parse
+
   signature STYLE
   structure Style
+
 is
   $SMLNJ-BASIS/basis.cm
   $smlnj/compiler/current.cm
@@ -9,16 +13,17 @@ is
   $smlnj/viscomp/basics.cm
   $smlnj/viscomp/elabdata.cm
 
-
   ast-util/ast-traverse.sig
   ast-util/ast-traverse.sml
   ast-util/parse.sig
   ast-util/parse.sml
 
-  checkers/check.sig
-  checkers/append.sml
-
   io-util/simple-print.sml
 
   main/style.sig
   main/style.sml
+
+  checkers/check.sig
+  checkers/append.sml
+  checkers/if_option.sml
+  (* Add extra rules here *)

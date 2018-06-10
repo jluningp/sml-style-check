@@ -8,7 +8,8 @@ fun also_map f e =
     case e of
         [] => []
       | x::xs => (let
-                   val res = [f x] @ (map f xs)
+                   val call = f x
+                   val res = [call] @ (map f xs)
                  in
                    res
                  end)
