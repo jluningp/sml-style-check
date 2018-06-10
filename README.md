@@ -46,7 +46,7 @@ val it = () : unit
 
 This section gives instructions on how to add new rules to the style checker. 
 
-The rules style checker's rules can be found in the `checkers/' directory. Each rule has three components:
+The rules style checker's rules can be found in the `checkers/` directory. Each rule has three components:
 1. A check function. This function should return true when presented with an SML/NJ expression AST (the definition of 
 which can be found [here](https://www.smlnj.org/doc/Compiler/pages/ast.html)) that violates the style rule in question, 
 and false otherwise. Make sure the check function accounts for Marked, Seq, and FlatAppExp nodes that may be present
@@ -59,9 +59,8 @@ should give the programmer advice on how to fix the style error.
 
 For consistency, each rule should be a structure ascribing to the CHECK signature (found in checkers/check.sig).
 
-Once a new rule structure is added to the checkers/ directory, add it to the `sources.cm` under `(* Add extra rules here *)`.
-Then, edit the `checkers` list in `main/style.sml` to have a new tuple containing the check, warning, and hint values 
-for the rule. 
+Once a new rule structure is added to the `checkers/` directory, add it to the `sources.cm` under `(* Add extra rules here *)`.
+Then, add a new tuple containing (check, warning, and hint) to the `checkers` list in `main/style.sml`. 
 
 For good measure, you can also add tests for the new rule to `tests/`. 
 
