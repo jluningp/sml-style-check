@@ -5,7 +5,8 @@ struct
                   (IfOption.check, IfOption.warning, IfOption.hint),
                   (IfList.check, IfList.warning, IfList.hint),
                   (IfBool.check, IfBool.warning, IfBool.hint),
-                  (IfBoolInv.check, IfBoolInv.warning, IfBoolInv.hint)]
+                  (IfBoolInv.check, IfBoolInv.warning, IfBoolInv.hint),
+                  (CaseOneArm.check, CaseOneArm.warning, CaseOneArm.hint)]
 
   fun sourceloc_to_string (left : SourceMap.sourceloc, right : SourceMap.sourceloc) =
       let

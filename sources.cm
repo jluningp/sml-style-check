@@ -30,4 +30,5 @@ is
   checkers/if_list.sml
   checkers/if_bool_inv.sml
   checkers/if_bool.sml
+  checkers/case_one_arm.sml
   (* Add extra rules here *)
