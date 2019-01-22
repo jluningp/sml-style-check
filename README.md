@@ -46,10 +46,11 @@ val it = () : unit
 ```
 
 ## Extending the Checker
+Want to add new style rules?
 
-This section gives instructions on how to add new rules to the style checker. 
+The style checker's rules can be found in the `checkers/` directory. They are desribed in that directory's [readme](https://github.com/jluningp/sml-style-check/blob/master/checkers/README.md). 
 
-The style checker's rules can be found in the `checkers/` directory. Each rule has three components:
+Each rule has three components:
 1. A check function. This function should return true when presented with an SML/NJ expression AST (the definition of 
 which can be found [here](https://www.smlnj.org/doc/Compiler/pages/ast.html)) that violates the style rule in question, 
 and false otherwise. Make sure the check function accounts for Marked, Seq, and FlatAppExp nodes that may be present
@@ -65,6 +66,4 @@ For consistency, each rule should be a structure ascribing to the CHECK signatur
 Once a new rule structure is added to the `checkers/` directory, add it to the `sources.cm` under `(* Add extra rules here *)`.
 Then, add a new tuple containing (check, warning, and hint) to the `checkers` list in `main/style.sml`. 
 
-For good measure, you can also add tests for the new rule to `tests/`. 
-
-An in-depth example of how to add a new rule can be found on the [wiki](https://github.com/jluningp/sml-style-check/wiki/New-Style-Rule-Example). 
+You should also add tests for the new rule to `tests/` and document the rule in the `checkers/` readme. 
