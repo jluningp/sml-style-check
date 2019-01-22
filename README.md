@@ -21,7 +21,7 @@ the file.
 
 
 ## Example
-The code being checked in this example can be found in `tests/append.sml`.
+The code being checked in this example can be found in `tests/combined.sml`.
 
 ```
 $ sml -m sources.cm
@@ -29,18 +29,23 @@ Standard ML of New Jersey v110.82 [built: Wed Dec 13 23:38:01 2017]
 [scanning sources.cm]
 [New bindings added.]
 - Style.check_style "tests/combined.sml";
-tests/combined.sml:8.32-55 Style: appended singleton to the front of list
+tests/combined.sml:13.32-55 Style: appended singleton to the front of list
    expression: [y] @ (mapPartial f xs)
    hint: use :: instead
-tests/combined.sml:2.28-9.33 Style: checked for NONE using if
+tests/combined.sml:7.28-14.33 Style: checked for NONE using if
    expression: if f x = NONE
                then mapPartial f xs
                else let
-                  val SOME y = f x
+                  val SOME y = id (f x)
                 in
                   ([y] @ (mapPartial f xs))
                 end
    hint: use case instead
+tests/combined.sml:2.9-54 Style: if <bool> then true else false
+   expression: if 5 < 10 andalso 10 < 5
+               then true
+               else false
+   hint: you don't need the if!
 val it = () : unit
 - 
 ```
