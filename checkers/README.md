@@ -19,3 +19,10 @@ Files: `checkers/if_option.sml`, `tests/if_option.sml`
 When checking if a value `v` is `nil`, it is bad style to use `if v = [] then ...` rather than `case v of [] => ...`
 
 Files: `checkers/if_list.sml`, `tests/if_list.sml`
+
+#### Rule: Use not, instead of if for negation
+
+When inverting a boolean value `v`, it is bas style to use `if v then false else true` rather than `not v`
+
+Files: `checkers/if_bool_inv.sml`, `tests/if_bool_inv.sml`
+

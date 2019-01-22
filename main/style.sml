@@ -4,7 +4,8 @@ struct
   val checkers = [(Append.check, Append.warning, Append.hint),
                   (IfOption.check, IfOption.warning, IfOption.hint),
                   (IfList.check, IfList.warning, IfList.hint),
-                  (IfBool.check, IfBool.warning, IfBool.hint)]
+                  (IfBool.check, IfBool.warning, IfBool.hint),
+                  (IfBoolInv.check, IfBoolInv.warning, IfBoolInv.hint)]
 
   fun sourceloc_to_string (left : SourceMap.sourceloc, right : SourceMap.sourceloc) =
       let
