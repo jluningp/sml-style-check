@@ -28,4 +28,5 @@ is
   checkers/append.sml
   checkers/if_option.sml
   checkers/if_list.sml
+  checkers/if_bool.sml
   (* Add extra rules here *)
