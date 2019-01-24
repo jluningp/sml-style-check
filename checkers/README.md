@@ -26,10 +26,26 @@ When inverting a boolean value `v`, it is bad style to use `if v then false else
 
 Files: `checkers/if_bool_inv.sml`, `tests/if_bool_inv.sml`
 
-
 #### Rule: Use let, not case for pattern matching
 
 Instead of using a one armed case such as `case z of (x, _) => x + 1`, it is better style to use `let val (x, _) = z in x + 1 end`.
 
 Files: `checkers/case_one_arm.sml`, `tests/case_one_arm.sml`
 
+#### Rule: Remove unnecessary ifs 
+
+Never write `if exp then true else false`. Use `exp` instead.
+
+Files: `checkers/if_bool.sml`, `tests/if_bool.sml`
+
+#### Rule: Don't nest ifs more than three levels deep
+
+Opt to use case expressions instead.
+
+Files: `checkers/nested_if.sml`, `tests/nested_if.sml`
+
+#### Rule: Don't nest cases more than three levels deep
+
+Case on tuples or use helper functions.
+
+Files: `checkers/nested_case.sml`, `tests/nested_case.sml`

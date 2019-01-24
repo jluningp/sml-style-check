@@ -23,7 +23,7 @@ struct
        |  ConstraintExp {constraint:ty, expr:exp} => f expr
                                                      @ find_exp f expr
        |  FlatAppExp exp_fixitems => List.concatMap (fixitem f) exp_fixitems
-       |  FnExp rules => []
+       |  FnExp rules => List.concat (map (find_rule f) rules)
        |  HandleExp {expr:exp, rules:rule list} => f expr
                                                    @ find_exp f expr
                                                    @ List.concat (map (find_rule f) rules)
