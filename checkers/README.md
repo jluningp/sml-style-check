@@ -19,3 +19,21 @@ Files: `checkers/if_option.sml`, `tests/if_option.sml`
 When checking if a value `v` is `nil`, it is bad style to use `if v = [] then ...` rather than `case v of [] => ...`
 
 Files: `checkers/if_list.sml`, `tests/if_list.sml`
+
+#### Rule: Remove unnecessary ifs 
+
+Never write `if exp then true else false`. Use `exp` instead.
+
+Files: `checkers/if_bool.sml`, `tests/if_bool.sml`
+
+#### Rule: Don't nest ifs more than three levels deep
+
+Opt to use case expressions instead.
+
+Files: `checkers/nested_if.sml`, `tests/nested_if.sml`
+
+#### Rule: Don't nest cases more than three levels deep
+
+Case on tuples or use helper functions.
+
+Files: `checkers/nested_case.sml`, `tests/nested_case.sml`
