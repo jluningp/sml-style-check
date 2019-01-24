@@ -31,6 +31,5 @@ is
   checkers/if_bool_inv.sml
   checkers/if_bool.sml
   checkers/case_one_arm.sml
-  checkers/nested_if.sml
-  checkers/nested_case.sml
+  checkers/nested_if_case.sml
   (* Add extra rules here *)

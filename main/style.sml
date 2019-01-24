@@ -7,8 +7,7 @@ struct
                   (IfBool.check, IfBool.warning, IfBool.hint),
                   (IfBoolInv.check, IfBoolInv.warning, IfBoolInv.hint),
                   (CaseOneArm.check, CaseOneArm.warning, CaseOneArm.hint),
-                  (NestedIf.check, NestedIf.warning, NestedIf.hint),
-                  (NestedCase.check, NestedCase.warning, NestedCase.hint)]
+                  (NestedIfCase.check, NestedIfCase.warning, NestedIfCase.hint)]
 
   fun sourceloc_to_string (left : SourceMap.sourceloc, right : SourceMap.sourceloc) =
       let
