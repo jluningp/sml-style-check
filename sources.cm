@@ -28,7 +28,9 @@ is
   checkers/append.sml
   checkers/if_option.sml
   checkers/if_list.sml
+  checkers/if_bool_inv.sml
   checkers/if_bool.sml
+  checkers/case_one_arm.sml
   checkers/nested_if.sml
   checkers/nested_case.sml
   (* Add extra rules here *)
