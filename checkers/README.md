@@ -38,14 +38,8 @@ Never write `if exp then true else false`. Use `exp` instead.
 
 Files: `checkers/if_bool.sml`, `tests/if_bool.sml`
 
-#### Rule: Don't nest ifs more than three levels deep
+#### Rule: Don't nest ifs and cases more than three levels deep
 
-Opt to use case expressions instead.
+Use nested patterns, case on tuples, or create helper functions instead.
 
-Files: `checkers/nested_if.sml`, `tests/nested_if.sml`
-
-#### Rule: Don't nest cases more than three levels deep
-
-Case on tuples or use helper functions.
-
-Files: `checkers/nested_case.sml`, `tests/nested_case.sml`
+Files: `checkers/nested_if_case.sml`, `tests/nested_if_case.sml`
