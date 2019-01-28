@@ -6,6 +6,8 @@ struct
   fun regionify region (elem, NONE) = (elem, SOME region)
     | regionify _ (elem, SOME region) = (elem, SOME region)
 
+
+  (* This is not the find_exp exposed in the signature. That's at the bottom of this file. *)
   fun find_exp f e =
       case e of
           AndalsoExp (e1, e2) => f e1
@@ -133,5 +135,8 @@ struct
       case rvb of
           MarkRvb (rvb', region) => map (regionify region) (find_rvb f rvb')
         | Rvb {exp, fixity, lazyp, resultty, var} => f exp @ find_exp f exp
+
+  (* Gives find_exp a more intuitive behavior for the outside user *)
+  val find_exp = fn f => fn e => f e @ find_exp f e
 
 end

@@ -4,7 +4,6 @@ Group
 
   signature STYLE
   structure Style
-
 is
   $SMLNJ-BASIS/basis.cm
   $smlnj/compiler/current.cm
@@ -32,4 +31,10 @@ is
   checkers/if_bool.sml
   checkers/case_one_arm.sml
   checkers/nested_if_case.sml
+  checkers/andalso.sml
+  checkers/orelse.sml
+  checkers/equals_true.sml
+  checkers/equals_false.sml
+  checkers/hash.sml
+  checkers/record.sml
   (* Add extra rules here *)

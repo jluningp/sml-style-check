@@ -1,4 +1,4 @@
-structure IfOption : CHECK =
+structure EqualsFalse : CHECK =
 struct
    open Ast
 
@@ -16,25 +16,18 @@ struct
        then true
        else find_pair f (y::xs)
 
-   fun find_option_check exp =
+   fun check exp =
        case exp of
            FlatAppExp (L as _::_::_) => if find_pair (fn (x, y) => is_sym "=" (#item x)
                                                                 andalso
-                                                                is_sym "NONE" (#item y)) L
+                                                                is_sym "false" (#item y)) L
                                         then [(exp, NONE)]
                                         else []
 
          | _ => []
 
-   fun check exp =
-       case exp of
-           IfExp {thenCase, elseCase, test} => (case AstTraverse.find_exp find_option_check test of
-                                                    [] => []
-                                                  | _ => [(exp, NONE)])
-         | _ => []
+   val warning = "<exp> = false"
 
-   val warning = "checked for NONE using if"
-
-   val hint = "use case instead"
+   val hint = "use not instead"
 
 end

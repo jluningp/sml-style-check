@@ -7,7 +7,13 @@ struct
                   (IfBool.check, IfBool.warning, IfBool.hint),
                   (IfBoolInv.check, IfBoolInv.warning, IfBoolInv.hint),
                   (CaseOneArm.check, CaseOneArm.warning, CaseOneArm.hint),
-                  (NestedIfCase.check, NestedIfCase.warning, NestedIfCase.hint)]
+                  (NestedIfCase.check, NestedIfCase.warning, NestedIfCase.hint),
+                  (Andalso.check, Andalso.warning, Andalso.hint),
+                  (Orelse.check, Orelse.warning, Orelse.hint),
+                  (EqualsTrue.check, EqualsTrue.warning, EqualsTrue.hint),
+                  (EqualsFalse.check, EqualsFalse.warning, EqualsFalse.hint),
+                  (HashSelector.check, HashSelector.warning, HashSelector.hint),
+                  (Record.check, Record.warning, Record.hint)]
 
   fun sourceloc_to_string (left : SourceMap.sourceloc, right : SourceMap.sourceloc) =
       let
@@ -56,4 +62,7 @@ struct
       in
         print (concat (map (warnings (source, ast, env)) checkers))
       end
+      handle IO.Io _ => printStdErr ("Error: File " ^ filename ^ " does not exist.\n")
+           | CompileExn.Compile _ => printStdErr ("Error: Parse error in file " ^ filename ^ ".\n")
+
 end
