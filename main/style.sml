@@ -62,7 +62,7 @@ struct
       in
         print (concat (map (warnings (source, ast, env)) checkers))
       end
-      handle IO.Io _ => printStdErr ("Error: File " ^ filename ^ " does not exist.\n")
-           | CompileExn.Compile _ => printStdErr ("Error: Parse error in file " ^ filename ^ ".\n")
+      handle IO.Io _ => print ("Error: File " ^ filename ^ " does not exist.\n")
+           | CompileExn.Compile _ => print ("Error: Parse error in file " ^ filename ^ ".\n")
 
 end
