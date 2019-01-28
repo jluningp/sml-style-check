@@ -13,7 +13,7 @@ sml -m sources.cm
 and call
 
 ```
-Style.checkStyle <filename>
+Style.check_style <filename>
 ```
 
 This will output a list of style warnings (in the same format as SML/NJ compiler error/warning messages) that pertain to 
